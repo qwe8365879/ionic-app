@@ -1,0 +1,23 @@
+<!--
+  Generated template for the BlogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Blog</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>{{ blog.title }}</ion-card-header>
+    <ion-card-content [innerHtml]="blog.description | sanitizeHtml"></ion-card-content>
+  </ion-card>
+
+</ion-content>
