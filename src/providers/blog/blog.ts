@@ -17,7 +17,6 @@ import "rxjs/add/observable/interval";
 export class BlogProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello BlogProvider Provider');
   }
 
   getBlogs(): Observable<Blog[]>{

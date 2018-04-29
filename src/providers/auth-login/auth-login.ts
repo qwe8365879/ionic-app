@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { Env } from './../../env';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -11,7 +12,12 @@ import { Injectable } from '@angular/core';
 export class AuthLoginProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello AuthLoginProvider Provider');
+  }
+
+  login(username: string, password: string){
+    let headers = new HttpHeaders;
+    headers.set('Content-Type', 'application/json');
+    return this.http.post(Env.site_url+Env.auth_login, {username: username, password: password}, {headers: headers});
   }
 
 }

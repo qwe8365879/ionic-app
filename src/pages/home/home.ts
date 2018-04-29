@@ -13,7 +13,7 @@ import { Blog } from "../../class/blog";
 })
 export class HomePage implements OnInit {
 
-  blogs: any[];
+  blogs: Blog[];
 
   constructor(
     public navCtrl: NavController,

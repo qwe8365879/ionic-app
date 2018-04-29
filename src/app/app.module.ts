@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -16,6 +16,8 @@ import { LocalNotifications } from "@ionic-native/local-notifications";
 import { AuthLoginProvider } from '../providers/auth-login/auth-login';
 import { BlogProvider } from '../providers/blog/blog';
 import { SanitizeHtmlPipe, RemoveHtmlPipe } from "../pipe/sanitize-html-pipe";
+import { ProfilePage } from '../pages/profile/profile';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SanitizeHtmlPipe, RemoveHtmlPipe } from "../pipe/sanitize-html-pipe";
     TabsPage,
     BlogPage,
     SanitizeHtmlPipe,
-    RemoveHtmlPipe
+    RemoveHtmlPipe,
+    ProfilePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { SanitizeHtmlPipe, RemoveHtmlPipe } from "../pipe/sanitize-html-pipe";
     ContactPage,
     HomePage,
     TabsPage,
-    BlogPage
+    BlogPage,
+    ProfilePage,
+    LoginPage
   ],
   providers: [
     HttpClientModule,
