@@ -9,7 +9,7 @@
     <ion-item-sliding  *ngFor="let blog of blogs">
       <ion-item (click)="view(blog)">
           <ion-avatar item-start>
-            <img src="../../assets/imgs/logo.png">
+            <img src="{{blog.featuredMedia.details.thumbnail.source_url}}">
           </ion-avatar>
           <h2>{{ blog.title }}</h2>
           <p [innerHtml]="blog.description | removeHtml"></p>

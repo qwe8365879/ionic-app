@@ -22,6 +22,7 @@ export class MediaProvider {
   }
 
   getMedia(id: number): Observable<Media>{
+    
     return this.http.get(Env.site_url+Env.api_url+Env.media_ep+id).map((rawJson: any)=>{
       
       return {

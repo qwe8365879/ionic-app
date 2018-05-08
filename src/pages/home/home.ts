@@ -13,18 +13,25 @@ import { Blog } from "../../class/blog";
 })
 export class HomePage implements OnInit {
 
-  blogs: Blog[];
+  blogs: Blog[] = [];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private localNotifications: LocalNotifications,
-    private blogProvider: BlogProvider
+    private blogProvider: BlogProvider,
+    private mediaProvider: MediaProvider
   ) { }
 
   ngOnInit(){
     this.blogProvider.getBlogs().subscribe((blogs) => {
-      // this.blogs = blogs;
+      for(let i = 0; i < blogs.length; i++){
+        this.mediaProvider.getMedia(blogs[i].featuredMediaID).subscribe((media) => {
+          blogs[i].featuredMedia = media;
+          this.blogs[i] = blogs[i];
+        })
+      }
+      
     });
   }
 
