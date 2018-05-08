@@ -1,3 +1,5 @@
+import { MediaProvider } from './../providers/media/media';
+import { BlogProvider } from './../providers/blog/blog';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -6,7 +8,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    BlogProvider,
+    MediaProvider
+  ]
 })
 export class MyApp {
   rootPage:any = TabsPage;

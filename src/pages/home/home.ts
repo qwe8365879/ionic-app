@@ -1,3 +1,4 @@
+import { MediaProvider } from './../../providers/media/media';
 import { BlogProvider } from './../../providers/blog/blog';
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -8,8 +9,7 @@ import { Blog } from "../../class/blog";
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [BlogProvider]
+  templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
 
@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
 
   ngOnInit(){
     this.blogProvider.getBlogs().subscribe((blogs) => {
-      this.blogs = blogs;
+      // this.blogs = blogs;
     });
   }
 

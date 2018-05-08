@@ -1,3 +1,4 @@
+import { AuthLoginProvider } from './../../providers/auth-login/auth-login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -18,12 +19,16 @@ export class LoginPage {
   username: string;
   password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authLoginProvider: AuthLoginProvider) {
+
   }
 
-  ionViewDidLoad() {
-    
+  login(){
+    this.authLoginProvider.login(this.username, this.password).subscribe((response) => {
+      
+      localStorage.setItem('loginDetails', JSON.stringify(response));
+      this.navCtrl.pop();
+    });
   }
 
 }

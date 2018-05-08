@@ -18,6 +18,7 @@ import { BlogProvider } from '../providers/blog/blog';
 import { SanitizeHtmlPipe, RemoveHtmlPipe } from "../pipe/sanitize-html-pipe";
 import { ProfilePage } from '../pages/profile/profile';
 import { LoginPage } from '../pages/login/login';
+import { MediaProvider } from '../providers/media/media';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { LoginPage } from '../pages/login/login';
     LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthLoginProvider,
-    BlogProvider
+    BlogProvider,
+    MediaProvider
   ]
 })
 export class AppModule {}

@@ -4,6 +4,6 @@ export const Env = {
     auth_login: 'wp-json/jwt-auth/v1/token',
     posts_ep: 'posts/',
     categories_ep: 'categories/',
-    tage_ep: 'tags/'
-    
+    tage_ep: 'tags/',
+    media_ep: 'media/'
 }

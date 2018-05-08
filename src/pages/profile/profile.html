@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-
+  <div *ngIf="loginedUser" class="profile-container">
+    <img src="{{loginedUser.userAvater}}" alt="">
+    <div class="">{{ loginedUser.userDisplayName }}</div>
+    <div class="">{{ loginedUser.userEmail }}</div>
+    <button ion-button outline (click)="logout()">Logout</button>
+  </div>
 </ion-content>
