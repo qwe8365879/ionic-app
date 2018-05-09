@@ -1,5 +1,5 @@
 import { Media } from './media';
-export class Blog {
+export interface Blog {
     id: number;
     author_id: number;
     title: string;

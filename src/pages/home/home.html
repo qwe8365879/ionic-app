@@ -4,30 +4,9 @@
   </ion-navbar>
   <ion-toolbar>
     <ion-scroll scrollX="true" >
-      <ion-segment [(ngModel)]="category" color="secondary">
-        <ion-segment-button value="camera">
-          <ion-icon name="camera"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="bookmark">
-          <ion-icon name="bookmark"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="camera">
-          <ion-icon name="camera"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="bookmark">
-          <ion-icon name="bookmark"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="camera">
-          <ion-icon name="camera"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="bookmark">
-          <ion-icon name="bookmark"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="camera">
-          <ion-icon name="camera"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="bookmark">
-          <ion-icon name="bookmark"></ion-icon>
+      <ion-segment *ngIf="categories" [(ngModel)]="currentCategoryId" color="secondary">
+        <ion-segment-button *ngFor="let category of categories" ViewChildDir [id]="'cat_' + category.id" value="{{ category.id }}" (click)="selectCategory(category.id)">
+          {{ category.name }}
         </ion-segment-button>
       </ion-segment>
     </ion-scroll>

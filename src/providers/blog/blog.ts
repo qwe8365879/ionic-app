@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { Env } from './../../env';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import "rxjs/add/observable/interval";
 
@@ -24,20 +24,21 @@ export class BlogProvider {
     public http: HttpClient
   ) { }
 
-  getBlogs(): Observable<Blog[]>{
-    return this.http.get(Env.site_url+Env.api_url+Env.posts_ep).map((rawJson: any[])=>{
+  getBlogs(filter?: HttpParams | {}): Observable<Blog[]>{
+    return this.http.get(Env.site_url+Env.api_url+Env.posts_ep, {
+      params: filter
+    }).map((rawJson: any[])=>{
       return rawJson.map((item)=>{
-        let blog = new Blog;
-        blog.id = item.id;
-        blog.title = item.title.rendered;
-        blog.author_id = item.author;
-        blog.slug = item.slug;
-        blog.description = item.content.rendered;
-        blog.createdAt = item.date;
-        blog.updatedAt = item.modified;
-        blog.featuredMediaID = item.featured_media;
-        
-        return blog;
+        return {
+          id: item.id,
+          title: item.title.rendered,
+          author_id: item.author,
+          slug: item.slug,
+          description: item.content.rendered,
+          createdAt: item.date,
+          updatedAt: item.modified,
+          featuredMediaID: item.featured_media
+        }
       });
     });
   }

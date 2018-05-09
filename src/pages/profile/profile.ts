@@ -2,7 +2,7 @@ import { HomePage } from './../home/home';
 import { User } from './../../class/user';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, NavOptions } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, NavOptions, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the ProfilePage page.
@@ -19,13 +19,14 @@ import { IonicPage, NavController, NavParams, NavOptions } from 'ionic-angular';
 export class ProfilePage {
   loginedUser: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewWillEnter() {
     let loginDetails = localStorage.getItem('loginDetails');
     if( !loginDetails ){
       this.navCtrl.push(LoginPage,{});
+      // this.modalCtrl.create(LoginPage).present();
     }else{
       let storedUser = JSON.parse( loginDetails );
       this.loginedUser = storedUser;

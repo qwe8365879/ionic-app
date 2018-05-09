@@ -17,7 +17,7 @@ export class CategoryProvider {
   }
 
   getCategories(){
-    return this.http.get(Env.site_url+Env.api_url+Env.posts_ep).map((rawJson: any[])=>{
+    return this.http.get(Env.site_url+Env.api_url+Env.categories_ep).map((rawJson: any[])=>{
       return rawJson.map((item)=>{
         let category = {
           id: item.id,
