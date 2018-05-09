@@ -1,3 +1,4 @@
+import { CategoryProvider } from './../providers/category/category';
 import { MediaProvider } from './../providers/media/media';
 import { BlogProvider } from './../providers/blog/blog';
 import { Component } from '@angular/core';
@@ -11,7 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
   templateUrl: 'app.html',
   providers: [
     BlogProvider,
-    MediaProvider
+    MediaProvider,
+    CategoryProvider
   ]
 })
 export class MyApp {

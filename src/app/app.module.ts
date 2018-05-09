@@ -19,6 +19,8 @@ import { SanitizeHtmlPipe, RemoveHtmlPipe } from "../pipe/sanitize-html-pipe";
 import { ProfilePage } from '../pages/profile/profile';
 import { LoginPage } from '../pages/login/login';
 import { MediaProvider } from '../providers/media/media';
+import { CategoryProvider } from '../providers/category/category';
+import { TagProvider } from '../providers/tag/tag';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { MediaProvider } from '../providers/media/media';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthLoginProvider,
     BlogProvider,
-    MediaProvider
+    MediaProvider,
+    CategoryProvider,
+    TagProvider
   ]
 })
 export class AppModule {}

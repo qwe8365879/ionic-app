@@ -1,3 +1,5 @@
+import { CategoryProvider } from './../../providers/category/category';
+import { Category } from './../../class/category';
 import { MediaProvider } from './../../providers/media/media';
 import { BlogProvider } from './../../providers/blog/blog';
 import { Component, OnInit } from '@angular/core';
@@ -11,27 +13,39 @@ import { Blog } from "../../class/blog";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit{
 
-  blogs: Blog[] = [];
+  blogs: Blog[];
+
+  categories: Category[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private localNotifications: LocalNotifications,
     private blogProvider: BlogProvider,
-    private mediaProvider: MediaProvider
+    private mediaProvider: MediaProvider,
+    private categoryProvider: CategoryProvider
   ) { }
 
+  ionViewWillEnter() {}
+
   ngOnInit(){
+    this.blogs = [];
     this.blogProvider.getBlogs().subscribe((blogs) => {
       for(let i = 0; i < blogs.length; i++){
         this.mediaProvider.getMedia(blogs[i].featuredMediaID).subscribe((media) => {
           blogs[i].featuredMedia = media;
-          this.blogs[i] = blogs[i];
+          this.blogs.push( blogs[i] );
         })
       }
-      
+      // this.blogs = blogs;
+    });
+  }
+
+  private getCategories(){
+    this.categoryProvider.getCategories().subscribe((categories) => {
+      this.categories = categories;
     });
   }
 

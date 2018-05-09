@@ -1,3 +1,29 @@
 page-home {
+    ion-segment {
+        display: block;
+        white-space: nowrap;
+        font-size: 0;
+        overflow: auto;
+    
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+    
+        ion-segment-button.segment-button {
+            display: inline-block;
+            min-width: 100px;
+            width: auto;
+        }
+    }
 
+    ion-scroll {
+        width: 100%;
+        height: 37px;
+    }
+
+    .segment-md .segment-button {
+        height: 3.2rem;
+    }
 }

@@ -3,8 +3,8 @@
     <ion-title>Home</ion-title>
   </ion-navbar>
   <ion-toolbar>
-    <ion-scroll scrollX="true">
-      <ion-segment [(ngModel)]="icons" color="secondary">
+    <ion-scroll scrollX="true" >
+      <ion-segment [(ngModel)]="category" color="secondary">
         <ion-segment-button value="camera">
           <ion-icon name="camera"></ion-icon>
         </ion-segment-button>
@@ -31,7 +31,6 @@
         </ion-segment-button>
       </ion-segment>
     </ion-scroll>
-      
   </ion-toolbar>
 </ion-header>
 
